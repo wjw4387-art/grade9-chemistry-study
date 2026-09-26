@@ -4,13 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#275c4d">
-  <meta name="description" content="知学自主学习空间：九年级化学上下册，自由选课、系统讲解、直观图示、分层练习与错题复习。">
-  <title>九年级化学 · 知学自主学习空间</title>
+  <meta name="description" content="知学自主学习空间：初中物理完整三册、九年级化学上下册，自由选课、系统讲解、直观图示、分层练习与错题复习。">
+  <title>知学 · 自主学习空间</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23102b46'/%3E%3Cpath d='M22 10h20M28 10v20L15 51a4 4 0 0 0 3 6h28a4 4 0 0 0 3-6L36 30V10' fill='none' stroke='%23fff' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M21 45h22' stroke='%23f1c66b' stroke-width='5'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <div id="app"></div>
-  <script type="module" src="./app.js"></script>
+  <div id="app"><main class="loading-state"><span class="brand-icon">知</span><h1>正在打开学习空间…</h1><p>载入课程与学习记录</p></main></div>
+  <noscript><p>请开启浏览器 JavaScript，以使用课程、练习和学习记录功能。</p></noscript>
+  <script>
+    if(location.protocol==='file:'){
+      document.getElementById('app').innerHTML='<main class="loading-state"><span class="brand-icon">知</span><h1>从这里打开学习空间</h1><p>请使用在线网站学习。若需要在这台电脑离线使用，请双击项目文件夹中的「启动学习工具.command」。</p><a class="btn primary" href="https://grade9-chemistry-study.vercel.app/">进入在线学习空间 →</a><p class="muted-label">直接双击 index.html 时，浏览器无法载入课程文件。</p></main>';
+    }else{
+      const script=document.createElement('script');script.type='module';script.src='./app.js';
+      script.onerror=()=>{document.getElementById('app').innerHTML='<main class="loading-state"><h1>暂时未能打开学习空间</h1><p>请检查网络，再刷新页面。</p><button class="btn primary" onclick="location.reload()">重新载入</button></main>';};
+      document.body.append(script);
+    }
+  </script>
 </body>
 </html>

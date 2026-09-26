@@ -1,10 +1,13 @@
 export function normalize(value) {
-  const normalized = String(value ?? '').trim().normalize('NFKC')
+  const superscripts={'⁺':'+','⁻':'-','⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9'};
+  const normalized = String(value ?? '').trim().replace(/10([⁺⁻⁰¹²³⁴⁵⁶⁷⁸⁹]+)/g,(_,exponent)=>'10^'+[...exponent].map(c=>superscripts[c]).join('')).normalize('NFKC')
     .replace(/\s/g,'').replace(/[，、]/g,',').replace(/[：∶]/g,':')
-    .replace(/[＝]/g,'=').replace(/[→⟶]/g,'→');
+    .replace(/[＝]/g,'=').replace(/[→⟶]/g,'→').replace(/−/g,'-');
   // 只对单个数值做等值处理；单位和百分号仍保留，化学式及比值不改写。
-  const numeric = normalized.match(/^([+-]?(?:\d+\.?\d*|\.\d+))(%|kg|mg|g|t|ml|l|cm|cm3|kwh|g\/ml|°c)?$/i);
-  return numeric && Number.isFinite(Number(numeric[1])) ? String(Number(numeric[1]))+(numeric[2]||'').toLowerCase() : normalized;
+  const candidate=normalized.replace(/^([+-]?(?:\d+\.?\d*|\.\d+))[×x*·]10\^([+-]?\d+)/,'$1e$2').replace(/^10\^([+-]?\d+)/,'1e$1');
+  const numeric = candidate.match(/^([+-]?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?)(%|kg|mg|g|t|mL|ml|L|l|mm|cm|dm|m|km|mm2|cm2|m2|cm3|dm3|m3|s|min|h|Hz|kHz|MHz|N|kN|Pa|kPa|MPa|J|kJ|MJ|W|mW|kW|MW|A|mA|V|mV|kV|Ω|kΩ|MΩ|C|W·h|kW·h|kWh|g\/mL|g\/ml|g\/cm3|kg\/m3|m\/s|km\/h|N\/kg|J\/\(kg·°C\)|°C|K)?$/);
+  const aliases={ml:'mL',l:'L','g/ml':'g/mL'};
+  return numeric && Number.isFinite(Number(numeric[1])) ? String(Number(numeric[1]))+(aliases[numeric[2]]||numeric[2]||'') : normalized;
 }
 export function isAnswered(question, answer) {
   if(question.type==='case') return Array.isArray(answer) && question.parts.every((_,i)=>normalize(answer?.[i]).length>0);
@@ -44,7 +47,7 @@ export function cleanProgress(input, lessonIds, questionIds, questions) {
   const draft=input.draft;
   if(draft&&Array.isArray(draft.ids)&&draft.ids.length&&draft.ids.every(id=>questionIds.has(id))&&new Set(draft.ids).size===draft.ids.length){
     const index=Number(draft.index);
-    result.draft={title:String(draft.title||'继续练习').slice(0,160),type:['lesson','unit','all','upper','lower','wrong','question'].includes(draft.type)?draft.type:'all',id:String(draft.id||''),ids:draft.ids,answers:{},index:Number.isFinite(index)?Math.max(0,Math.min(Math.floor(index),draft.ids.length-1)):0};
+    result.draft={title:String(draft.title||'继续练习').slice(0,160),type:['lesson','unit','all','upper','lower','g8-upper','g8-lower','g9-full','wrong','question'].includes(draft.type)?draft.type:'all',id:String(draft.id||''),ids:draft.ids,answers:{},index:Number.isFinite(index)?Math.max(0,Math.min(Math.floor(index),draft.ids.length-1)):0};
     for(const id of draft.ids){
       const a=draft.answers?.[id],q=questions?.get(id);
       if(q&&['case','multi'].includes(q.type)&&!Array.isArray(a))continue;

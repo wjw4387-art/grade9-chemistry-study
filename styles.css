@@ -738,3 +738,57 @@ input::placeholder,textarea::placeholder { color: #98a394; }
 /* Mobile navigation always has an accessible close control within its layer. */
 .sidebar-close { display: none; }
 @media (max-width:720px) { .mobile-open .sidebar-close { display: grid; place-items:center; position:absolute; top:18px; right:16px; width:32px; height:32px; border:1px solid #dbe4d6; border-radius:8px; background:#fff; color:#315b49; z-index:2; } }
+
+/* Subject-aware accents retain one consistent reading environment. */
+.subject-physics { --green:#376981; --green-deep:#254f67; --green-soft:#e8f0f5; --ink-strong:#23495f; --line:#e0e8ed; }
+.subject-physics .hero { background:#eef4f7; border-color:#dce8ef; }
+.subject-physics .navbtn.active,.subject-physics .unitlink.active,.subject-physics .term-tabs button.active { background:#e4edf3; color:var(--green-deep); }
+.subject-physics .course-context,.subject-physics .unit-symbol { background:#edf3f7; }
+.subject-physics .progress-bar > span { background:#6b96af; }
+.subject-physics .context-pill,.subject-physics .navbtn.active .icon { color:#52778d; }
+.sidebar-term-label { margin:15px 12px 5px; color:var(--muted); font-size:.68rem; letter-spacing:.08em; font-weight:650; }
+.course-grid { display:grid; gap:20px; }
+.course-grid .course-tile { transition:transform .2s ease,box-shadow .2s ease; }
+.course-grid .course-tile:hover { transform:translateY(-2px); box-shadow:var(--shadow-raised); }
+.course-grid .course-tile .btn { margin-top:8px; }
+.course-tile.subject-physics { background:linear-gradient(110deg,#edf4f8,#fff 80%); border-color:#dce7ee; }
+.course-tile.subject-chemistry { background:linear-gradient(110deg,#f0f5ec,#fff 80%); }
+.course-tile.subject-physics .course-tile-art { background:#e8f0f6; }
+.loading-state { display:flex; align-items:center; justify-content:center; flex-direction:column; gap:16px; min-height:90vh; max-width:660px; text-align:center; margin:auto; padding:32px; }
+.loading-state h1 { font-size:1.9rem; line-height:1.4; margin:10px 0 0; color:var(--ink-strong); }
+.loading-state p { margin:0; max-width:540px; line-height:1.9; color:var(--muted); }
+.loading-state .brand-icon { width:58px; height:58px; font-size:1.6rem; }
+.question-diagram { margin:20px 0; padding:15px; background:#f9fbfc; border:1px solid var(--line); border-radius:12px; }
+.question-diagram svg { display:block; width:100%; max-height:360px; }
+.question .diagram-card { margin:20px 0; }
+@media (max-width:480px) {
+  .term-tabs button { font-size:.69rem; padding:9px 4px; }
+  .loading-state h1 { font-size:1.5rem; }
+  .question-diagram { padding:6px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  *,*::before,*::after { transition:none!important; animation:none!important; }
+}
+.edition-note { margin:0 0 26px; font-size:.76rem; color:var(--muted); }
+.edition-note a { margin-left:12px; color:var(--green); border-bottom:1px solid #c9d8d0; }
+.portal-header { min-height:86px; display:flex; align-items:center; justify-content:space-between; gap:18px; padding:20px max(24px,calc((100vw - 1100px) / 2)); background:#fdfdfb; border-bottom:1px solid var(--line); }
+.portal-main { max-width:1180px; margin:auto; padding:48px 40px 20px; }
+.portal-main .course-tile { margin:0; }
+@media (min-width:1024px) {
+  .portal-main .course-grid { grid-template-columns:1fr 1fr; }
+  .portal-main .course-tile { flex-direction:column; align-items:flex-start; padding:32px; }
+  .portal-main .course-tile-art { flex-basis:auto; width:100%; height:190px; background:transparent; }
+  .portal-main .course-tile-art svg { height:190px; width:100%; }
+}
+@media (max-width:600px) {
+  .portal-header { padding:16px 22px; }
+  .portal-header .text-link,.portal-header .muted-label { font-size:.73rem; }
+  .portal-main { padding:28px 20px 10px; }
+  .portal-main .page-heading h1 { font-size:1.6rem; }
+}
+.future-heading { margin-top:42px; }
+.portal-main .course-tile-art { height:145px; }
+.portal-main .course-tile-art svg { height:145px; }
+.portal-main .stage-card { padding:22px 24px; }
+.dialog-panel .question-diagram svg { min-width:630px; max-height:none; }
