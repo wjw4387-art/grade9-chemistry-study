@@ -1,3 +1,4 @@
+import {physicsConditions} from './question-conditions.js?v=20260926-sixteen-type1';
 // 跨册复核：把早期课中偏简单的挑战题替换为带条件推理的原创题，保持题号与进度兼容。
 const T=(stem,answers,explain)=>({type:'text',difficulty:3,stem,answers,explain});
 const K=(stem,parts,explain,table)=>({type:'case',difficulty:3,stem,parts,explain,...(table?{table}:{})});
@@ -33,4 +34,4 @@ export const physicsRefinements={
 'phy-p3-5-14':T('湿布杯从40 ℃冷却，前5 min降至34 ℃，第10 min实测30 ℃。若误把前5 min的降温速度一直外推到第10 min，预测温度比实测温度低多少℃？',['2'],'前5 min下降6 ℃，按相同速度10 min会下降12 ℃，预测28 ℃；实测30 ℃，预测偏低2 ℃。降温快慢随条件变化，不能无条件线性外推。'),
 'phy-p3-5-16':K('两只同样的杯子装等质量40 ℃温水。甲包干布静置，乙包湿布并用风扇吹，10 min后甲35 ℃、乙30 ℃。两杯所处室温相同。',[['这10 min中，乙比甲多降低多少℃？',['5']],['能否据此把全部降温差只归因于湿布？填能或不能。',['不能']],['若专门比较干布与湿布，在保留乙方案时，应让甲也接受相同的什么条件？填风速或初温。',['风速']]],'甲降5 ℃，乙降10 ℃，差5 ℃。同时改变了布的干湿和气流，不能只归因于湿布。保留乙的风扇时，应让甲也有相同风速，且维持初温、质量等其他条件相同。')
 };
-export function refinePhysicsUnits(units){return units.map(u=>({...u,lessons:u.lessons.map(l=>({...l,questions:l.questions.map(q=>physicsRefinements[q.id]?{...physicsRefinements[q.id],id:q.id}:q)}))}));}
+export function refinePhysicsUnits(units){return units.map(u=>({...u,lessons:u.lessons.map(l=>({...l,questions:l.questions.map((q,index)=>({...q,...physicsRefinements[q.id],...(physicsConditions[q.id]?{stem:physicsConditions[q.id]}:{}),id:q.id,difficulty:1+Math.floor(index/4)}))}))}));}

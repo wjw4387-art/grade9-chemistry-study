@@ -1,13 +1,13 @@
-import {chemistryQuestionDiagram} from './chemistry/question-diagrams.js?v=20260926-notation2';
-import {chemistryQuestions} from './chemistry/questions-2026.js?v=20260926-notation2';
-import { units as upperUnits } from './content.js?v=20260926-notation2';
-import { questionsFor } from './bank.js?v=20260926-notation2';
-import { lessonDetails } from './lesson-details.js?v=20260926-notation2';
-import { lowerUnitsA, lowerDetailsA } from './lower-part-a.js?v=20260926-notation2';
-import { lowerUnitsB, lowerDetailsB } from './lower-part-b.js?v=20260926-notation2';
-import { upperDetailsA } from './upper-details-a.js?v=20260926-notation2';
-import { upperDetailsB } from './upper-details-b.js?v=20260926-notation2';
-import { upperDetailsC } from './upper-details-c.js?v=20260926-notation2';
+import {chemistryQuestionDiagram} from './chemistry/question-diagrams.js?v=20260926-sixteen-type1';
+import {chemistryQuestions} from './chemistry/questions-2026.js?v=20260926-sixteen-type1';
+import { units as upperUnits } from './content.js?v=20260926-sixteen-type1';
+import { questionsFor } from './bank.js?v=20260926-sixteen-type1';
+import { lessonDetails } from './lesson-details.js?v=20260926-sixteen-type1';
+import { lowerUnitsA, lowerDetailsA } from './lower-part-a.js?v=20260926-sixteen-type1';
+import { lowerUnitsB, lowerDetailsB } from './lower-part-b.js?v=20260926-sixteen-type1';
+import { upperDetailsA } from './upper-details-a.js?v=20260926-sixteen-type1';
+import { upperDetailsB } from './upper-details-b.js?v=20260926-sixteen-type1';
+import { upperDetailsC } from './upper-details-c.js?v=20260926-sixteen-type1';
 
 // 课程与学习记录按课程 ID 隔离；新增学科只需提供同一内容结构。
 export const stages = [

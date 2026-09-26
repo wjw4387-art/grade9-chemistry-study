@@ -1,11 +1,11 @@
-import { unit1 } from "./bank/unit1.js?v=20260926-notation2";
-import { unit2 } from "./bank/unit2.js?v=20260926-notation2";
-import { unit3 } from "./bank/unit3.js?v=20260926-notation2";
-import { unit4 } from "./bank/unit4.js?v=20260926-notation2";
-import { unit5 } from "./bank/unit5.js?v=20260926-notation2";
-import { unit6 } from "./bank/unit6.js?v=20260926-notation2";
-import { unit7 } from "./bank/unit7.js?v=20260926-notation2";
-import { cases } from "./bank/cases.js?v=20260926-notation2";
+import { unit1 } from "./bank/unit1.js?v=20260926-sixteen-type1";
+import { unit2 } from "./bank/unit2.js?v=20260926-sixteen-type1";
+import { unit3 } from "./bank/unit3.js?v=20260926-sixteen-type1";
+import { unit4 } from "./bank/unit4.js?v=20260926-sixteen-type1";
+import { unit5 } from "./bank/unit5.js?v=20260926-sixteen-type1";
+import { unit6 } from "./bank/unit6.js?v=20260926-sixteen-type1";
+import { unit7 } from "./bank/unit7.js?v=20260926-sixteen-type1";
+import { cases } from "./bank/cases.js?v=20260926-sixteen-type1";
 
 export const packs = Object.assign({}, unit1, unit2, unit3, unit4, unit5, unit6, unit7);
 

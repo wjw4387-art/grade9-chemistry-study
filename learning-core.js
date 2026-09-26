@@ -31,8 +31,8 @@ export function shuffled(items) {
 }
 export function drawByDifficulty(pool, limit) {
   if(pool.length<=limit)return [...pool].sort((a,b)=>a.difficulty-b.difficulty);
-  const levels=pool.some(q=>q.difficulty>3)?[1,2,3,4,5]:[1,2,3];
-  const quotas=levels.length===5?levels.map((_,i)=>Math.floor(limit/5)+(i<limit%5?1:0)):[Math.round(limit*.25),Math.round(limit*.35),limit-Math.round(limit*.25)-Math.round(limit*.35)];
+  const levels=[1,2,3,4];
+  const quotas=levels.map((_,i)=>Math.floor(limit/4)+(i<limit%4?1:0));
   const chosen=quotas.flatMap((n,i)=>shuffled(pool.filter(q=>q.difficulty===levels[i])).slice(0,n));
   const selected=new Set(chosen.map(q=>q.id));
   chosen.push(...shuffled(pool.filter(q=>!selected.has(q.id))).slice(0,limit-chosen.length));
@@ -42,7 +42,7 @@ export function cleanProgress(input, lessonIds, questionIds, questions, retiredI
   const result={statuses:{},wrong:{},attempts:[],lastLessonId:null,draft:null};
   if(!input||typeof input!=='object')return result;
   for(const [id,status] of Object.entries(input.statuses||{}))if(lessonIds.has(id)&&['new','studying','done','skipped'].includes(status))result.statuses[id]=status;
-  for(const [id,count] of Object.entries(input.wrong||{}))if(questionIds.has(id)&&Number.isFinite(count)&&count>0)result.wrong[id]=Math.floor(count);
+  for(const [id,count] of Object.entries({...input.archive?.wrong,...input.wrong}))if(questionIds.has(id)&&Number.isFinite(count)&&count>0)result.wrong[id]=Math.floor(count);
   result.attempts=(Array.isArray(input.attempts)?input.attempts:[]).filter(a=>a&&Number.isFinite(a.correct)&&Number.isFinite(a.total)&&a.correct>=0&&a.correct<=a.total&&typeof a.date==='string').slice(0,100);
   if(lessonIds.has(input.lastLessonId))result.lastLessonId=input.lastLessonId;
   // Retired chemistry questions remain in exportable archives; do not silently discard the learner's work.

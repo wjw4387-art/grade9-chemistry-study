@@ -1,4 +1,4 @@
-import {caseQuestion as q} from "./helpers.js?v=20260926-notation2";
+import {caseQuestion as q} from "./helpers.js?v=20260926-sixteen-type1";
 
 // 综合题按原卷考查方式重新命题：共同情境、多步推断、数据或装置分析。
 // 不复刻原卷题干、图示和答案页。
