@@ -1,6 +1,6 @@
-# 知学 · 自主学习空间
+# 学之路 · 自主学习空间
 
-[进入学习网站](https://grade9-chemistry-study.vercel.app/)
+[进入学习网站](https://www.xuezhilu.top/)
 
 自由选择想学的单元和知识点，按自己的节奏学习、复习与做题。
 
