@@ -1,14 +1,13 @@
-import {chemistryQuestionDiagram} from './chemistry/question-diagrams.js';
-import {chemistryQuestions} from './chemistry/questions-2026.js';
-import {fixChemistryData} from './chemistry/equations.js';
-import { units as upperUnits } from './content.js';
-import { questionsFor } from './bank.js';
-import { lessonDetails } from './lesson-details.js';
-import { lowerUnitsA, lowerDetailsA } from './lower-part-a.js';
-import { lowerUnitsB, lowerDetailsB } from './lower-part-b.js';
-import { upperDetailsA } from './upper-details-a.js';
-import { upperDetailsB } from './upper-details-b.js';
-import { upperDetailsC } from './upper-details-c.js';
+import {chemistryQuestionDiagram} from './chemistry/question-diagrams.js?v=20260926-notation2';
+import {chemistryQuestions} from './chemistry/questions-2026.js?v=20260926-notation2';
+import { units as upperUnits } from './content.js?v=20260926-notation2';
+import { questionsFor } from './bank.js?v=20260926-notation2';
+import { lessonDetails } from './lesson-details.js?v=20260926-notation2';
+import { lowerUnitsA, lowerDetailsA } from './lower-part-a.js?v=20260926-notation2';
+import { lowerUnitsB, lowerDetailsB } from './lower-part-b.js?v=20260926-notation2';
+import { upperDetailsA } from './upper-details-a.js?v=20260926-notation2';
+import { upperDetailsB } from './upper-details-b.js?v=20260926-notation2';
+import { upperDetailsC } from './upper-details-c.js?v=20260926-notation2';
 
 // 课程与学习记录按课程 ID 隔离；新增学科只需提供同一内容结构。
 export const stages = [
@@ -26,14 +25,14 @@ const originalUnits = [
   ...upperUnits.map(unit => ({...unit, term:'upper', lessons:unit.lessons.map(lesson=>({...lesson,questions:questionsFor(lesson)}))})),
   ...lowerUnitsA, ...lowerUnitsB
 ];
-export const units = fixChemistryData(originalUnits.map(unit=>({...unit,lessons:unit.lessons.map(lesson=>({...lesson,questions:chemistryQuestions[lesson.id].map(q=>({...q,...(chemistryQuestionDiagram(q.id)?{diagram:chemistryQuestionDiagram(q.id)}:{})}))}))})));
+export const units = originalUnits.map(unit=>({...unit,lessons:unit.lessons.map(lesson=>({...lesson,questions:chemistryQuestions[lesson.id].map(q=>({...q,...(chemistryQuestionDiagram(q.id)?{diagram:chemistryQuestionDiagram(q.id)}:{})}))}))}));
 const activeIds=new Set(units.flatMap(u=>u.lessons.flatMap(l=>l.questions.map(q=>q.id))));
 export const retiredQuestionIds=new Set(originalUnits.flatMap(u=>u.lessons.flatMap(l=>l.questions.map(q=>q.id))).filter(id=>!activeIds.has(id)));
 const upperExtra = {...upperDetailsA,...upperDetailsB,...upperDetailsC};
-export const details = fixChemistryData({
+export const details = {
   ...Object.fromEntries(Object.entries(lessonDetails).map(([id,detail])=>[id,{...detail,...upperExtra[id]}])),
   ...lowerDetailsA, ...lowerDetailsB
-});
+};
 export const allLessons = units.flatMap(unit => unit.lessons.map(lesson => ({
   ...lesson, courseId:course.id, unitId:unit.id, unitTitle:unit.title, term:unit.term,
   questions:lesson.questions.map((question,index)=>({...question,id:question.id || `${lesson.id}-q${index}`}))

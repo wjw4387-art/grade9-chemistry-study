@@ -18,7 +18,7 @@ export const courses = [
       {id:'g9-full',title:'九年级全一册',short:'九年级',subtitle:'内能、电学、电磁与能源'}
     ],
     async load(){
-      const [a,b,c,review]=await Promise.all([import('./physics/grade8-upper.js'),import('./physics/grade8-lower.js'),import('./physics/grade9.js'),import('./physics/question-refinements.js')]);
+      const [a,b,c,review]=await Promise.all([import('./physics/grade8-upper.js?v=20260926-notation2'),import('./physics/grade8-lower.js?v=20260926-notation2'),import('./physics/grade9.js?v=20260926-notation2'),import('./physics/question-refinements.js?v=20260926-notation2')]);
       return buildCourse(this,review.refinePhysicsUnits([...a.physicsUnits8U,...b.physicsUnits8L,...c.physicsUnits9]),{...a.physicsDetails8U,...b.physicsDetails8L,...c.physicsDetails9},{...a.physicsVisuals8U,...b.physicsVisuals8L,...c.physicsVisuals9});
     }
   },
@@ -31,7 +31,7 @@ export const courses = [
     practiceDescription:'每课10题，每2题提升一级：基础理解、应用辨析、综合推理、广州中考综合、超中考拔高。最后两题为拓展设计，可自行跳过。',
     difficultyLabels:{1:'基础理解',2:'应用辨析',3:'综合推理',4:'广州中考综合',5:'超中考拔高'},
     terms:[{id:'upper',title:'九年级上册',short:'上册',subtitle:'认识物质与化学变化'},{id:'lower',title:'九年级下册',short:'下册',subtitle:'探索物质与社会生活'}],
-    async load(){const [content,upper,lower]=await Promise.all([import('./catalog.js'),import('./lesson-visuals.js'),import('./lower-visuals.js')]);return {...buildCourse(this,content.units,content.details,{},id=>content.lessonById.get(id)?.term==='lower'?lower.lowerDiagramFor(id):upper.diagramFor(id)),retiredQuestionIds:content.retiredQuestionIds};}
+    async load(){const [content,upper,lower]=await Promise.all([import('./catalog.js?v=20260926-notation2'),import('./lesson-visuals.js?v=20260926-notation2'),import('./lower-visuals.js?v=20260926-notation2')]);return {...buildCourse(this,content.units,content.details,{},id=>content.lessonById.get(id)?.term==='lower'?lower.lowerDiagramFor(id):upper.diagramFor(id)),retiredQuestionIds:content.retiredQuestionIds};}
   }
 ];
 const cache=new Map();

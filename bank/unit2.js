@@ -1,4 +1,4 @@
-import {choice as c,multi as m,text as t} from "./helpers.js";
+import {choice as c,multi as m,text as t} from "./helpers.js?v=20260926-notation2";
 
 export const unit2 = {
 "u2-1": {claims:[

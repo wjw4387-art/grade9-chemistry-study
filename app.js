@@ -1,8 +1,8 @@
-import {explanationHTML} from './question-explanations.js';
-import {applyReadingSize,readingControl,readableDiagram} from './reading-settings.js';
-import {formatChemistryText} from './chemistry/equations.js';
-import {courses, stages, courseMeta, courseIdForRoute, loadCourse} from './course-registry.js';
-import {grade, isAnswered, drawByDifficulty, cleanProgress} from './learning-core.js';
+import {explanationHTML} from './question-explanations.js?v=20260926-notation2';
+import {applyReadingSize,readingControl,readableDiagram} from './reading-settings.js?v=20260926-notation2';
+import {formatChemistryText} from './chemistry/equations.js?v=20260926-notation2';
+import {courses, stages, courseMeta, courseIdForRoute, loadCourse} from './course-registry.js?v=20260926-notation2';
+import {grade, isAnswered, drawByDifficulty, cleanProgress} from './learning-core.js?v=20260926-notation2';
 
 applyReadingSize();
 const KEY='zhixue-learning-v2';

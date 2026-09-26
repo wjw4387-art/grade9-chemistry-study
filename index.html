@@ -16,7 +16,7 @@
     if(location.protocol==='file:'){
       document.getElementById('app').innerHTML='<main class="loading-state"><span class="brand-icon">知</span><h1>从这里打开学习空间</h1><p>请使用在线网站学习。若需要在这台电脑离线使用，请双击项目文件夹中的「启动学习工具.command」。</p><a class="btn primary" href="https://grade9-chemistry-study.vercel.app/">进入在线学习空间 →</a><p class="muted-label">直接双击 index.html 时，浏览器无法载入课程文件。</p></main>';
     }else{
-      const script=document.createElement('script');script.type='module';script.src='./app.js';
+      const script=document.createElement('script');script.type='module';script.src='./app.js?v=20260926-notation2';
       script.onerror=()=>{document.getElementById('app').innerHTML='<main class="loading-state"><h1>暂时未能打开学习空间</h1><p>请检查网络，再刷新页面。</p><button class="btn primary" onclick="location.reload()">重新载入</button></main>';};
       document.body.append(script);
     }

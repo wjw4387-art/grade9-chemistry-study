@@ -997,12 +997,12 @@ export const chemistryQuestions = {
           ]
         ]
       ],
-      "explain": "水承接高温熔融物；氧气质量为23.2－16.8=6.4 g，符合3Fe＋2O₂→Fe₃O₄的质量比；黑色固体可直接观察。",
+      "explain": "水承接高温熔融物；氧气质量为23.2－16.8=6.4 g，符合3Fe + 2O₂ = Fe₃O₄（点燃）的质量比；黑色固体可直接观察。",
       "id": "exam-u2-2-case"
     },
     {
       "type": "case",
-      "stem": "铁在足量氧气中充分燃烧生成Fe₃O₄，反应式3Fe＋2O₂＝Fe₃O₄（点燃）。取Fe=56、O=16。8.4 g铁全部反应，产物无损失。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "铁在足量氧气中充分燃烧生成Fe₃O₄，反应式3Fe + 2O₂ = Fe₃O₄（点燃）。取Fe=56、O=16。8.4 g铁全部反应，产物无损失。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "消耗氧气多少g？",
@@ -1235,7 +1235,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "用过氧化氢溶液和MnO₂制氧气。68 g溶液完全反应，只有氧气逸出，装置最终减重3.2 g。反应2H₂O₂＝2H₂O＋O₂↑（MnO₂催化）；H=1、O=16。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "用过氧化氢溶液和MnO₂制氧气。68 g溶液完全反应，只有氧气逸出，装置最终减重3.2 g。反应2H₂O₂ = 2H₂O + O₂↑（MnO₂催化）；H=1、O=16。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "实际反应H₂O₂质量多少g？",
@@ -1282,7 +1282,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "固体混合物只含KMnO₄和MnO₂，共17.8 g。充分加热仅发生2KMnO₄＝K₂MnO₄＋MnO₂＋O₂↑（加热），最后固体16.2 g。K=39、Mn=55、O=16；所有氧气逸出，固体无损失。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "固体混合物只含KMnO₄和MnO₂，共17.8 g。充分加热仅发生2KMnO₄ = K₂MnO₄ + MnO₂ + O₂↑（加热），最后固体16.2 g。K=39、Mn=55、O=16；所有氧气逸出，固体无损失。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "原KMnO₄质量多少g？",
@@ -1310,7 +1310,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "需实际收集4.8 g氧气。使用10%的H₂O₂溶液，H₂O₂完全分解，但氧气收集率为80%。MnO₂不损失。反应2H₂O₂＝2H₂O＋O₂↑（MnO₂催化）；H=1、O=16。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "需实际收集4.8 g氧气。使用10%的H₂O₂溶液，H₂O₂完全分解，但氧气收集率为80%。MnO₂不损失。反应2H₂O₂ = 2H₂O + O₂↑（MnO₂催化）；H=1、O=16。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "理论需生成氧气多少g？",
@@ -3105,7 +3105,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "电解18 g水完全生成氢气和氧气。H=1、O=16，反应2H₂O＝2H₂↑＋O₂↑（通电）。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "电解18 g水完全生成氢气和氧气。H=1、O=16，反应2H₂O = 2H₂↑ + O₂↑（通电）。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "生成氢气质量多少g？",
@@ -3491,7 +3491,7 @@ export const chemistryQuestions = {
       "type": "case",
       "difficulty": 3,
       "kind": "情境综合题",
-      "stem": "密闭条件下电解36 g水，假定全部分解。反应为2H₂O→2H₂＋O₂，H₂O=18，H₂=2，O₂=32。",
+      "stem": "密闭条件下电解36 g水，假定全部分解。反应为2H₂O = 2H₂↑ + O₂↑（通电），H₂O=18，H₂=2，O₂=32。",
       "parts": [
         [
           "理论产生氢气多少g？",
@@ -3994,7 +3994,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "碳和氧气在密闭容器中反应，只生成CO₂。碳初始6 g、氧气初始12 g，充分反应。C=12、O=16，反应C＋O₂＝CO₂（点燃）。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "碳和氧气在密闭容器中反应，只生成CO₂。碳初始6 g、氧气初始12 g，充分反应。C=12、O=16，反应C + O₂ = CO₂（点燃）。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "实际参加反应的碳多少g？",
@@ -4094,22 +4094,24 @@ export const chemistryQuestions = {
       "kind": "基础选择"
     },
     {
-      "id": "q54",
-      "type": "text",
-      "stem": "2H₂＋O₂→2H₂O 中，氢分子与氧分子的个数比是多少？填 2:1 形式。",
-      "answers": [
-        "2:1",
-        "2∶1",
-        "2：1"
-      ],
-      "explain": "化学计量数给出粒子个数比2∶1。",
+      "id": "eq26-u5-2-notation",
+      "type": "choice",
       "difficulty": 1,
-      "kind": "基础填空"
+      "kind": "书写规范辨析",
+      "stem": "某同学写下原稿“2CO＋O₂→2CO₂”（未标反应条件），并说：“两侧原子个数已相等，所以这已经是按本课规范完整书写的化学方程式。”这句话是否正确？",
+      "options": [
+        "正确",
+        "错误"
+      ],
+      "answer": 1,
+      "explain": "应选“错误”。左侧有2个碳原子、4个氧原子，右侧也有2个碳原子、4个氧原子，说明系数已满足原子守恒。但“已经配平”不等于“书写完整”：按本课采用的人教版初中规范，还应以等号连接，并在等号上方标明点燃。规范写法为2CO + O₂ = 2CO₂（点燃）。反应物已有气体，CO₂后不另标↑。在其他化学文献中，箭头也可用于化学方程式；这里考查的是本课明确采用的书写规范，不能仅凭有无箭头作普遍定义。",
+      "knowledgeNote": "判断化学方程式应分别检查真实反应、配平、连接符号、反应条件和必要的气体或沉淀标记；原子守恒只是其中一项。",
+      "pitfall": "不要把“系数已配平”当成“整条式子已规范完整”，也不要将“箭头在任何场合都不能用于化学方程式”当成规则。"
     },
     {
       "type": "multi",
       "difficulty": 2,
-      "stem": "对2H₂＋O₂→2H₂O，正确的是？",
+      "stem": "对2H₂ + O₂ = 2H₂O（点燃），正确的是？",
       "options": [
         "氢分子与氧分子个数比2:1",
         "氢气与氧气质量比1:8",
@@ -4128,19 +4130,19 @@ export const chemistryQuestions = {
     {
       "type": "text",
       "difficulty": 2,
-      "stem": "配平Fe＋O₂→Fe₃O₄，Fe、O₂、Fe₃O₄的系数依次是多少？用逗号隔开。",
+      "stem": "铁在氧气中燃烧，先列出未配平草稿Fe＋O₂—Fe₃O₄。只填写配平后Fe、O₂、Fe₃O₄的最简整数系数，依次用逗号隔开；反应条件为点燃。",
       "answers": [
         "3,2,1",
         "3，2，1"
       ],
-      "explain": "3Fe＋2O₂→Fe₃O₄。",
+      "explain": "Fe₃O₄含4个氧原子，先在O₂前配2，再在Fe前配3，系数为3,2,1；补上点燃条件，并把草稿短线改为等号，得到3Fe + 2O₂ = Fe₃O₄（点燃）。本题填空只考系数，解析给出完整书写。",
       "id": "exam-u5-2-t4",
       "kind": "综合填空"
     },
     {
       "type": "multi",
       "difficulty": 3,
-      "stem": "以CaCO₃→CaO＋CO₂为例，哪些计算步骤必要？",
+      "stem": "含不反应杂质的石灰石样品充分高温分解，按CaCO₃ = CaO + CO₂↑（高温）求CO₂的理论质量。哪些步骤必要？",
       "options": [
         "确认方程式已配平",
         "将样品中的杂质质量扣除",
@@ -4152,7 +4154,7 @@ export const chemistryQuestions = {
         1,
         2
       ],
-      "explain": "只有实际参加反应的纯净物质量可代入比例。",
+      "explain": "先检查反应事实、配平、条件与符号；再由题设纯度求实际分解的CaCO₃质量，不能把不反应杂质计入。用CaCO₃和CO₂的质量比100:44建立比例，不是把各个质量直接相加。",
       "id": "exam-u5-2-t6",
       "kind": "多项分析"
     },
@@ -4160,7 +4162,7 @@ export const chemistryQuestions = {
       "type": "case",
       "difficulty": 3,
       "kind": "情境综合题",
-      "stem": "取16.0 g含杂质的石灰石样品，杂质不反应。与足量稀盐酸反应，收集到5.28 g CO₂。反应为CaCO₃＋2HCl→CaCl₂＋H₂O＋CO₂，CaCO₃=100，CO₂=44。",
+      "stem": "取16.0 g含杂质的石灰石样品，杂质不反应。与足量稀盐酸反应，收集到5.28 g CO₂。反应为CaCO₃ + 2HCl = CaCl₂ + H₂O + CO₂↑，CaCO₃=100，CO₂=44。",
       "parts": [
         [
           "参与反应的CaCO₃质量是多少g？",
@@ -4191,7 +4193,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "完整反应式为4Al＋3O₂＝2Al₂O₃（点燃）。Al=27、O=16。5.4 g Al与6.4 g O₂反应至不能继续，无其他反应。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "完整反应式为4Al + 3O₂ = 2Al₂O₃（点燃）。Al=27、O=16。5.4 g Al与6.4 g O₂反应至不能继续，无其他反应。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "消耗O₂多少g？",
@@ -4219,7 +4221,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "写某燃料燃烧反应：C₂H₆O＋aO₂＝bCO₂＋cH₂O（点燃）。保持所有化学式不变，以C₂H₆O系数1计。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "某燃料在氧气中点燃，待定系数草稿为C₂H₆O＋aO₂—bCO₂＋cH₂O。保持所有化学式不变，以C₂H₆O系数1计。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "b是多少？",
@@ -4240,14 +4242,14 @@ export const chemistryQuestions = {
           ]
         ]
       ],
-      "explain": "先碳得b=2，氢得c=3；右侧O共7个，燃料已带1个，氧气需提供6个，所以a=3。不能忽略燃料自带氧。",
+      "explain": "先碳得b=2，氢得c=3；右侧O共7个，燃料已带1个，氧气需提供6个，所以a=3。不能忽略燃料自带氧。系数确定后把短线改成等号，标明点燃：C₂H₆O + 3O₂ = 2CO₂ + 3H₂O（点燃）；不是把尚待确定的系数式直接当作完整答案。",
       "kind": "方程式配平",
       "id": "gz26-u5-2-8",
       "difficulty": 4
     },
     {
       "type": "case",
-      "stem": "由铜氧化物与CO反应制铜，氧化物仅含CuO、Cu₂O，共22.4 g，完全还原得到19.2 g铜。已知CuO＋CO＝Cu＋CO₂（加热）、Cu₂O＋CO＝2Cu＋CO₂（加热），Cu=64、O=16、C=12。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "由铜氧化物与CO反应制铜，氧化物仅含CuO、Cu₂O，共22.4 g，完全还原得到19.2 g铜。已知CuO + CO = Cu + CO₂（加热）、Cu₂O + CO = 2Cu + CO₂（加热），Cu=64、O=16、C=12。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "样品失去氧元素多少g？",
@@ -4353,7 +4355,7 @@ export const chemistryQuestions = {
     {
       "type": "text",
       "difficulty": 2,
-      "stem": "2H₂O₂→2H₂O＋O₂中，68 g纯过氧化氢理论生成多少g氧气？（H₂O₂=34，O₂=32）",
+      "stem": "2H₂O₂ = 2H₂O + O₂↑（MnO₂催化）中，68 g纯过氧化氢理论生成多少g氧气？（H₂O₂=34，O₂=32）",
       "answers": [
         "32",
         "32g",
@@ -4386,7 +4388,7 @@ export const chemistryQuestions = {
       "type": "case",
       "difficulty": 3,
       "kind": "情境综合题",
-      "stem": "供氧器拟用40.0 g、质量分数17%的过氧化氢溶液。反应2H₂O₂→2H₂O＋O₂，H₂O₂=34、O₂=32。实际收集到2.4 g氧气。",
+      "stem": "供氧器拟用40.0 g、质量分数17%的过氧化氢溶液。反应2H₂O₂ = 2H₂O + O₂↑（MnO₂催化），H₂O₂=34、O₂=32。实际收集到2.4 g氧气。",
       "parts": [
         [
           "溶液中纯H₂O₂质量是多少g？",
@@ -4417,7 +4419,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "课堂供氧模型每分钟需实际供氧0.16 g，使用10 min，预计收集利用率80%。反应2H₂O₂＝2H₂O＋O₂↑（MnO₂催化）；H=1、O=16，原液质量分数10%。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "课堂供氧模型每分钟需实际供氧0.16 g，使用10 min，预计收集利用率80%。反应2H₂O₂ = 2H₂O + O₂↑（MnO₂催化）；H=1、O=16，原液质量分数10%。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "实际需氧总质量多少g？",
@@ -4604,7 +4606,7 @@ export const chemistryQuestions = {
       "type": "case",
       "difficulty": 3,
       "kind": "情境综合题",
-      "stem": "12 g碳粉与80 g氧化铜充分混合并高温反应，反应式C＋2CuO→2Cu＋CO₂。已知C=12、CuO=80、Cu=64、CO₂=44。",
+      "stem": "12 g碳粉与80 g氧化铜充分混合并高温反应，反应式C + 2CuO = 2Cu + CO₂↑（高温）。已知C=12、CuO=80、Cu=64、CO₂=44。",
       "parts": [
         [
           "80 g氧化铜完全反应需碳多少g？",
@@ -4636,7 +4638,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "用碳还原CuO，反应C＋2CuO＝2Cu＋CO₂↑（高温）。C=12、Cu=64、O=16。16.0 g CuO恰好完全反应。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "用碳还原CuO，反应C + 2CuO = 2Cu + CO₂↑（高温）。C=12、Cu=64、O=16。16.0 g CuO恰好完全反应。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "需要碳多少g？",
@@ -4683,7 +4685,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "一批碳粉含不反应杂质，与16.0 g纯CuO恰好完成C＋2CuO＝2Cu＋CO₂↑（高温）。总投料18.0 g，反应后固体13.6 g；没有固体飞溅或其他气体。C=12、Cu=64、O=16。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "一批碳粉含不反应杂质，与16.0 g纯CuO恰好完成C + 2CuO = 2Cu + CO₂↑（高温）。总投料18.0 g，反应后固体13.6 g；没有固体飞溅或其他气体。C=12、Cu=64、O=16。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "参加反应的碳质量多少g？",
@@ -4822,7 +4824,7 @@ export const chemistryQuestions = {
       "type": "case",
       "difficulty": 3,
       "kind": "情境综合题",
-      "stem": "将CO与CO₂混合气通入足量澄清石灰水，生成10.0 g CaCO₃沉淀；再将未反应气体安全引入氧气并充分燃烧。已知CO₂＋Ca(OH)₂→CaCO₃＋H₂O，CO₂=44、CaCO₃=100。",
+      "stem": "将CO与CO₂混合气通入足量澄清石灰水，生成10.0 g CaCO₃沉淀；再将未反应气体安全引入氧气并充分燃烧。已知CO₂ + Ca(OH)₂ = CaCO₃↓ + H₂O，CO₂=44、CaCO₃=100。",
       "parts": [
         [
           "原混合气中CO₂质量是多少g？",
@@ -4851,7 +4853,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "CO与CO₂混合气5.6 g，通入足量灼热CuO后全部CO转为CO₂，冷却后气体质量变为7.2 g，无气体损失。C=12、O=16，反应CO＋CuO＝Cu＋CO₂（加热）。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "CO与CO₂混合气5.6 g，通入足量灼热CuO后全部CO转为CO₂，冷却后气体质量变为7.2 g，无气体损失。C=12、O=16，反应CO + CuO = Cu + CO₂（加热）。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "气体增加的氧质量多少g？",
@@ -5038,7 +5040,7 @@ export const chemistryQuestions = {
       "type": "case",
       "difficulty": 3,
       "kind": "情境综合题",
-      "stem": "甲、乙两组各用20 g石灰石。甲纯度75%，乙纯度60%，其他条件相同、稀盐酸足量。CaCO₃＋2HCl→CaCl₂＋H₂O＋CO₂，CaCO₃=100，CO₂=44。",
+      "stem": "甲、乙两组各用20 g石灰石。甲纯度75%，乙纯度60%，其他条件相同、稀盐酸足量。CaCO₃ + 2HCl = CaCl₂ + H₂O + CO₂↑，CaCO₃=100，CO₂=44。",
       "parts": [
         [
           "甲组参与反应的CaCO₃质量是多少g？",
@@ -5898,7 +5900,7 @@ export const chemistryQuestions = {
     {
       "type": "text",
       "difficulty": 2,
-      "stem": "CH₄＋2O₂→CO₂＋2H₂O中，1个甲烷分子完全燃烧生成几个水分子？",
+      "stem": "CH₄ + 2O₂ = CO₂ + 2H₂O（点燃）中，1个甲烷分子完全燃烧生成几个水分子？",
       "answers": [
         "2"
       ],
@@ -6796,7 +6798,7 @@ export const chemistryQuestions = {
         "氮气"
       ],
       "answer": 2,
-      "explain": "Fe+2HCl→FeCl₂+H₂↑。",
+      "explain": "Fe + 2HCl = FeCl₂ + H₂↑。",
       "id": "lower-u8-2-02"
     },
     {
@@ -6877,7 +6879,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "铁粉11.2 g加入含16.0 g CuSO₄的溶液，充分反应，Fe＋CuSO₄＝FeSO₄＋Cu。Fe=56、Cu=64、S=32、O=16。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "铁粉11.2 g加入含16.0 g CuSO₄的溶液，充分反应，Fe + CuSO₄ = FeSO₄ + Cu。Fe=56、Cu=64、S=32、O=16。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "析出铜多少g？",
@@ -9183,7 +9185,7 @@ export const chemistryQuestions = {
         "0.2",
         "0.2g"
       ],
-      "explain": "Zn＋2HCl＝ZnCl₂＋H₂，65:2＝6.5:0.2。",
+      "explain": "Zn + 2HCl = ZnCl₂ + H₂↑，65:2＝6.5:0.2。",
       "id": "lower-u10-2a-08"
     },
     {
@@ -9237,7 +9239,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "CuO 8.0 g与100 g稀盐酸恰好反应，CuO＋2HCl＝CuCl₂＋H₂O。Cu=64、O=16、H=1、Cl=35.5。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "CuO 8.0 g与100 g稀盐酸恰好反应，CuO + 2HCl = CuCl₂ + H₂O。Cu=64、O=16、H=1、Cl=35.5。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "参加反应HCl多少g？",
@@ -9388,7 +9390,7 @@ export const chemistryQuestions = {
     {
       "type": "text",
       "difficulty": 2,
-      "stem": "按 2NaOH＋CO₂＝Na₂CO₃＋H₂O，8.0 g NaOH 最多吸收 CO₂ 多少 g？取 Na＝23，C＝12，O＝16，H＝1。",
+      "stem": "按 2NaOH + CO₂ = Na₂CO₃ + H₂O，8.0 g NaOH 最多吸收 CO₂ 多少 g？取 Na＝23，C＝12，O＝16，H＝1。",
       "answers": [
         "4.4",
         "4.4g"
@@ -9417,7 +9419,7 @@ export const chemistryQuestions = {
       "type": "case",
       "difficulty": 3,
       "kind": "综合探究",
-      "stem": "密闭吸收装置装有足量 NaOH 溶液，仅通入 4.4 g 干燥 CO₂，气体完全按 2NaOH＋CO₂＝Na₂CO₃＋H₂O 反应，无液体损失。",
+      "stem": "密闭吸收装置装有足量 NaOH 溶液，仅通入 4.4 g 干燥 CO₂，气体完全按 2NaOH + CO₂ = Na₂CO₃ + H₂O 反应，无液体损失。",
       "parts": [
         [
           "消耗 NaOH 多少 g？",
@@ -9447,7 +9449,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "NaOH敞口放置会吸水并与CO₂反应，2NaOH＋CO₂＝Na₂CO₃＋H₂O。Na=23、C=12、O=16、H=1。4.0 g纯NaOH全部变为Na₂CO₃，忽略吸水且生成水全部除去。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "NaOH敞口放置会吸水并与CO₂反应，2NaOH + CO₂ = Na₂CO₃ + H₂O。Na=23、C=12、O=16、H=1。4.0 g纯NaOH全部变为Na₂CO₃，忽略吸水且生成水全部除去。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "吸收CO₂多少g？",
@@ -9522,7 +9524,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "8.0 g纯NaOH部分吸收CO₂变质。除去所有水后干固体9.3 g，只含NaOH、Na₂CO₃。反应2NaOH＋CO₂＝Na₂CO₃＋H₂O，Na=23、C=12、O=16、H=1。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "8.0 g纯NaOH部分吸收CO₂变质。除去所有水后干固体9.3 g，只含NaOH、Na₂CO₃。反应2NaOH + CO₂ = Na₂CO₃ + H₂O，Na=23、C=12、O=16、H=1。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "已变质NaOH多少g？",
@@ -9555,9 +9557,9 @@ export const chemistryQuestions = {
       "difficulty": 1,
       "stem": "属于中和反应的是？",
       "options": [
-        "CuO＋2HCl＝CuCl₂＋H₂O",
-        "NaOH＋HCl＝NaCl＋H₂O",
-        "CaCO₃＋2HCl＝CaCl₂＋H₂O＋CO₂↑",
+        "CuO + 2HCl = CuCl₂ + H₂O",
+        "NaOH + HCl = NaCl + H₂O",
+        "CaCO₃ + 2HCl = CaCl₂ + H₂O + CO₂↑",
         "2H₂＋O₂点燃生成2H₂O"
       ],
       "answer": 1,
@@ -9657,7 +9659,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "NaOH溶液100 g与HCl溶液100 g恰好中和。已知NaOH原浓度4%，反应NaOH＋HCl＝NaCl＋H₂O。Na=23、O=16、H=1、Cl=35.5。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "NaOH溶液100 g与HCl溶液100 g恰好中和。已知NaOH原浓度4%，反应NaOH + HCl = NaCl + H₂O。Na=23、O=16、H=1、Cl=35.5。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "消耗HCl多少g？",
@@ -9869,7 +9871,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "Na₂CO₃溶液与CaCl₂溶液恰好反应，生成CaCO₃沉淀5 g。反应Na₂CO₃＋CaCl₂＝CaCO₃↓＋2NaCl，Na=23、C=12、O=16、Ca=40、Cl=35.5。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
+      "stem": "Na₂CO₃溶液与CaCl₂溶液恰好反应，生成CaCO₃沉淀5 g。反应Na₂CO₃ + CaCl₂ = CaCO₃↓ + 2NaCl，Na=23、C=12、O=16、Ca=40、Cl=35.5。 各数值小问只填数值；百分数、比例或化学式按小问要求填写。",
       "parts": [
         [
           "消耗Na₂CO₃多少g？",
@@ -10099,7 +10101,7 @@ export const chemistryQuestions = {
     },
     {
       "type": "case",
-      "stem": "除去NaCl溶液中的少量Na₂CO₃，计划加入稀盐酸。反应Na₂CO₃＋2HCl＝2NaCl＋H₂O＋CO₂↑。",
+      "stem": "除去NaCl溶液中的少量Na₂CO₃，计划加入稀盐酸。反应Na₂CO₃ + 2HCl = 2NaCl + H₂O + CO₂↑。",
       "parts": [
         [
           "理想用量应填“恰好”还是“大量过量”？",

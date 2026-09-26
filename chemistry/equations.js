@@ -17,33 +17,27 @@ export const reactions = [
   ['CuO + 2HCl','CuCl₂ + H₂O',''],['2NaOH + CO₂','Na₂CO₃ + H₂O',''],
   ['Na₂CO₃ + CaCl₂','CaCO₃↓ + 2NaCl',''],
   ['Na₂CO₃ + 2HCl','2NaCl + H₂O + CO₂↑',''],
-  ['Zn + 2HCl','ZnCl₂ + H₂↑',''],['Mg + 2HCl','MgCl₂ + H₂↑','']
+  ['Zn + 2HCl','ZnCl₂ + H₂↑',''],['Mg + 2HCl','MgCl₂ + H₂↑',''],
+  ['CuO + H₂SO₄','CuSO₄ + H₂O',''],['Fe₂O₃ + 6HCl','2FeCl₃ + 3H₂O',''],
+  ['CaO + H₂O','Ca(OH)₂',''],['2NaOH + CuSO₄','Cu(OH)₂↓ + Na₂SO₄',''],
+  ['NaHCO₃ + HCl','NaCl + H₂O + CO₂↑',''],['CaCl₂ + Na₂CO₃','CaCO₃↓ + 2NaCl',''],
+  ['Ca(OH)₂ + CO₂','CaCO₃↓ + H₂O',''],['NH₄Cl + NaOH','NaCl + NH₃↑ + H₂O','加热'],
+  ['C₆H₁₂O₆ + 6O₂','6CO₂ + 6H₂O','酶催化'],['C₂H₆O + 3O₂','2CO₂ + 3H₂O','点燃']
 ];
-const key=s=>s.normalize('NFKC').replace(/[\s↑↓]/g,'').replace(/[→⟶＝]/g,'=');
-const lookup=new Map(reactions.map(r=>[key(`${r[0]}=${r[1]}`),r]));
-const formula='[0-9A-Z][A-Za-z0-9₀-₉()]*[↑↓]?';
+// Rendering is presentation only: preserve the authored operator, coefficients,
+// conditions and state marks, including deliberate mistakes in assessment items.
+const formula='[0-9]*[A-Z][A-Za-z0-9₀-₉()]*[↑↓]?';
 const side=`${formula}(?:\\s*[+＋]\\s*${formula})*`;
-const expression=new RegExp(`(?<![A-Za-z0-9₀-₉])(${side})\\s*[→⟶=＝]\\s*(${side})(?:\\s*（(点燃|加热|高温|通电|MnO₂催化)）)?`,'g');
+const pattern=`(?<![A-Za-z0-9₀-₉])(${side})\\s*([→⟶=＝])\\s*(${side})(?:\\s*（([^（）\\n]{1,24})）)?`;
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-export function fixChemistryText(text){
-  return String(text).replace(expression,(whole,left,right)=>{
-    const reaction=lookup.get(key(`${left}=${right}`));
-    return reaction?`${reaction[0]} = ${reaction[1]}${reaction[2]?`（${reaction[2]}）`:''}`:whole;
-  });
-}
-export function fixChemistryData(value){
-  if(typeof value==='string')return fixChemistryText(value);
-  if(Array.isArray(value))return value.map(fixChemistryData);
-  if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,fixChemistryData(v)]));
-  return value;
-}
+export function chemistryExpressions(text){return [...String(text).matchAll(new RegExp(pattern,'g'))];}
 export function formatChemistryText(value){
-  const text=fixChemistryText(value??'');let html='',cursor=0;
-  for(const match of text.matchAll(expression)){
-    const reaction=lookup.get(key(`${match[1]}=${match[2]}`));if(!reaction)continue;
-    const [left,right,condition]=reaction;
+  const text=String(value??'');let html='',cursor=0;
+  for(const match of chemistryExpressions(text)){
+    const [,left,operator,right,condition='']=match;
+    if(!['=','＝'].includes(operator))continue;
     html+=escape(text.slice(cursor,match.index));
-    html+=`<span class="chemical-equation" role="math" aria-label="${escape(`${left}，${condition?'条件为'+condition+'，':''}生成${right}`)}"><span>${escape(left)}</span><span class="reaction-sign">${condition?`<span class="reaction-condition">${escape(condition)}</span>`:''}<span aria-hidden="true">＝</span></span><span>${escape(right)}</span></span>`;
+    html+=`<span class="chemical-equation" role="math" aria-label="${escape(`${left}，等号，${right}${condition?'，条件为'+condition:''}`)}"><span>${escape(left)}</span><span class="reaction-sign">${condition?`<span class="reaction-condition">${escape(condition)}</span>`:''}<span aria-hidden="true">＝</span></span><span>${escape(right)}</span></span>`;
     cursor=match.index+match[0].length;
   }
   return html+escape(text.slice(cursor));
