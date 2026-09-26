@@ -1,3 +1,6 @@
+import {chemistryQuestionDiagram} from './chemistry/question-diagrams.js';
+import {chemistryQuestions} from './chemistry/questions-2026.js';
+import {fixChemistryData} from './chemistry/equations.js';
 import { units as upperUnits } from './content.js';
 import { questionsFor } from './bank.js';
 import { lessonDetails } from './lesson-details.js';
@@ -19,15 +22,18 @@ export const course = {
   description:'从认识物质，到用化学理解生活。',
   terms:[{id:'upper',title:'上册',subtitle:'认识物质与化学变化'}, {id:'lower',title:'下册',subtitle:'探索物质与社会生活'}]
 };
-export const units = [
+const originalUnits = [
   ...upperUnits.map(unit => ({...unit, term:'upper', lessons:unit.lessons.map(lesson=>({...lesson,questions:questionsFor(lesson)}))})),
   ...lowerUnitsA, ...lowerUnitsB
 ];
+export const units = fixChemistryData(originalUnits.map(unit=>({...unit,lessons:unit.lessons.map(lesson=>({...lesson,questions:chemistryQuestions[lesson.id].map(q=>({...q,...(chemistryQuestionDiagram(q.id)?{diagram:chemistryQuestionDiagram(q.id)}:{})}))}))})));
+const activeIds=new Set(units.flatMap(u=>u.lessons.flatMap(l=>l.questions.map(q=>q.id))));
+export const retiredQuestionIds=new Set(originalUnits.flatMap(u=>u.lessons.flatMap(l=>l.questions.map(q=>q.id))).filter(id=>!activeIds.has(id)));
 const upperExtra = {...upperDetailsA,...upperDetailsB,...upperDetailsC};
-export const details = {
+export const details = fixChemistryData({
   ...Object.fromEntries(Object.entries(lessonDetails).map(([id,detail])=>[id,{...detail,...upperExtra[id]}])),
   ...lowerDetailsA, ...lowerDetailsB
-};
+});
 export const allLessons = units.flatMap(unit => unit.lessons.map(lesson => ({
   ...lesson, courseId:course.id, unitId:unit.id, unitTitle:unit.title, term:unit.term,
   questions:lesson.questions.map((question,index)=>({...question,id:question.id || `${lesson.id}-q${index}`}))

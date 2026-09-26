@@ -27,9 +27,11 @@ export const courses = [
     title:'九年级化学',gradeLabel:'九年级',edition:'人教版新教材',publisher:'人民教育出版社',
     unitLabel:'单元',unitTitle:'单元',scopeLabel:'上册 · 下册',shortScope:'上下册',
     description:'从认识物质，到用化学理解生活。',eyebrow:'CHEMISTRY',summary:'11 单元 · 九年级上下册',
-    verifiedAt:'2026-09-26',editionNote:'人教版新教材 · 上下册',
+    verifiedAt:'2026-09-26',editionNote:'人教版新教材 · 上下册 · 广州中考分层训练',
+    practiceDescription:'每课10题，每2题提升一级：基础理解、应用辨析、综合推理、广州中考综合、超中考拔高。最后两题为拓展设计，可自行跳过。',
+    difficultyLabels:{1:'基础理解',2:'应用辨析',3:'综合推理',4:'广州中考综合',5:'超中考拔高'},
     terms:[{id:'upper',title:'九年级上册',short:'上册',subtitle:'认识物质与化学变化'},{id:'lower',title:'九年级下册',short:'下册',subtitle:'探索物质与社会生活'}],
-    async load(){const [content,upper,lower]=await Promise.all([import('./catalog.js'),import('./lesson-visuals.js'),import('./lower-visuals.js')]);return buildCourse(this,content.units,content.details,{},id=>content.lessonById.get(id)?.term==='lower'?lower.lowerDiagramFor(id):upper.diagramFor(id));}
+    async load(){const [content,upper,lower]=await Promise.all([import('./catalog.js'),import('./lesson-visuals.js'),import('./lower-visuals.js')]);return {...buildCourse(this,content.units,content.details,{},id=>content.lessonById.get(id)?.term==='lower'?lower.lowerDiagramFor(id):upper.diagramFor(id)),retiredQuestionIds:content.retiredQuestionIds};}
   }
 ];
 const cache=new Map();

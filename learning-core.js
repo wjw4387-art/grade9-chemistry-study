@@ -10,12 +10,12 @@ export function normalize(value) {
   return numeric && Number.isFinite(Number(numeric[1])) ? String(Number(numeric[1]))+(aliases[numeric[2]]||numeric[2]||'') : normalized;
 }
 export function isAnswered(question, answer) {
-  if(question.type==='case') return Array.isArray(answer) && question.parts.every((_,i)=>normalize(answer?.[i]).length>0);
+  if(['case','order','match'].includes(question.type)) return Array.isArray(answer) && question.parts.every((_,i)=>normalize(answer?.[i]).length>0);
   if(question.type==='multi') return Array.isArray(answer) && answer.length>0;
   return answer!==undefined && answer!==null && normalize(answer)!=='';
 }
 export function grade(question, answer) {
-  if(question.type==='case') {
+  if(['case','order','match'].includes(question.type)) {
     const parts = question.parts.map(([,accepted],i)=>accepted.some(a=>normalize(a)===normalize(answer?.[i])) && normalize(answer?.[i])!=='');
     return {correct:parts.every(Boolean),parts};
   }
@@ -31,26 +31,38 @@ export function shuffled(items) {
 }
 export function drawByDifficulty(pool, limit) {
   if(pool.length<=limit)return [...pool].sort((a,b)=>a.difficulty-b.difficulty);
-  const quotas=[Math.round(limit*.25),Math.round(limit*.35)];quotas.push(limit-quotas[0]-quotas[1]);
-  const chosen=quotas.flatMap((n,i)=>shuffled(pool.filter(q=>q.difficulty===i+1)).slice(0,n));
+  const levels=pool.some(q=>q.difficulty>3)?[1,2,3,4,5]:[1,2,3];
+  const quotas=levels.length===5?levels.map((_,i)=>Math.floor(limit/5)+(i<limit%5?1:0)):[Math.round(limit*.25),Math.round(limit*.35),limit-Math.round(limit*.25)-Math.round(limit*.35)];
+  const chosen=quotas.flatMap((n,i)=>shuffled(pool.filter(q=>q.difficulty===levels[i])).slice(0,n));
   const selected=new Set(chosen.map(q=>q.id));
   chosen.push(...shuffled(pool.filter(q=>!selected.has(q.id))).slice(0,limit-chosen.length));
   return chosen.sort((a,b)=>a.difficulty-b.difficulty);
 }
-export function cleanProgress(input, lessonIds, questionIds, questions) {
+export function cleanProgress(input, lessonIds, questionIds, questions, retiredIds=new Set()) {
   const result={statuses:{},wrong:{},attempts:[],lastLessonId:null,draft:null};
   if(!input||typeof input!=='object')return result;
   for(const [id,status] of Object.entries(input.statuses||{}))if(lessonIds.has(id)&&['new','studying','done','skipped'].includes(status))result.statuses[id]=status;
   for(const [id,count] of Object.entries(input.wrong||{}))if(questionIds.has(id)&&Number.isFinite(count)&&count>0)result.wrong[id]=Math.floor(count);
   result.attempts=(Array.isArray(input.attempts)?input.attempts:[]).filter(a=>a&&Number.isFinite(a.correct)&&Number.isFinite(a.total)&&a.correct>=0&&a.correct<=a.total&&typeof a.date==='string').slice(0,100);
   if(lessonIds.has(input.lastLessonId))result.lastLessonId=input.lastLessonId;
+  // Retired chemistry questions remain in exportable archives; do not silently discard the learner's work.
+  const known=id=>questionIds.has(id)||retiredIds.has(id);
+  const archiveWrong={};
+  for(const [id,count] of Object.entries({...input.archive?.wrong,...input.wrong}))if(retiredIds.has(id)&&Number.isFinite(count)&&count>0)archiveWrong[id]=Math.floor(count);
+  let archivedDraft=null;
+  const archivedCandidate=input.draft?.ids?.some(id=>retiredIds.has(id))?input.draft:input.archive?.draft;
+  if(archivedCandidate&&Array.isArray(archivedCandidate.ids)&&archivedCandidate.ids.length<=2000&&archivedCandidate.ids.every(known)){
+    archivedDraft={title:String(archivedCandidate.title||'旧版练习').slice(0,160),ids:archivedCandidate.ids,answers:{}};
+    for(const id of archivedCandidate.ids){const a=archivedCandidate.answers?.[id];if(typeof a==='string'||typeof a==='number')archivedDraft.answers[id]=String(a).slice(0,1000);else if(Array.isArray(a))archivedDraft.answers[id]=a.slice(0,20).map(x=>String(x??'').slice(0,1000));}
+  }
+  if(Object.keys(archiveWrong).length||archivedDraft)result.archive={wrong:archiveWrong,draft:archivedDraft};
   const draft=input.draft;
   if(draft&&Array.isArray(draft.ids)&&draft.ids.length&&draft.ids.every(id=>questionIds.has(id))&&new Set(draft.ids).size===draft.ids.length){
     const index=Number(draft.index);
     result.draft={title:String(draft.title||'继续练习').slice(0,160),type:['lesson','unit','all','upper','lower','g8-upper','g8-lower','g9-full','wrong','question'].includes(draft.type)?draft.type:'all',id:String(draft.id||''),ids:draft.ids,answers:{},index:Number.isFinite(index)?Math.max(0,Math.min(Math.floor(index),draft.ids.length-1)):0};
     for(const id of draft.ids){
       const a=draft.answers?.[id],q=questions?.get(id);
-      if(q&&['case','multi'].includes(q.type)&&!Array.isArray(a))continue;
+      if(q&&['case','order','match','multi'].includes(q.type)&&!Array.isArray(a))continue;
       if(q&&['text','choice'].includes(q.type)&&Array.isArray(a))continue;
       if(typeof a==='string'||typeof a==='number')result.draft.answers[id]=String(a).slice(0,1000);
       else if(Array.isArray(a))result.draft.answers[id]=a.slice(0,20).map(x=>String(x??'').slice(0,1000));
