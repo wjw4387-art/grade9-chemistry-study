@@ -44,4 +44,4 @@ if(id==='u5-1'||id==='u5-2')return `<svg class="lesson-diagram" viewBox="0 0 760
 if(id==='u7-1'||id==='u7-e4')return `<svg class="lesson-diagram" viewBox="0 0 760 220" role="img" aria-label="燃烧需要可燃物、氧气和温度达到着火点；灭火可破坏任一条件"><path d="M380 28L570 190H190Z" fill="#fff0d5" stroke="#dc9d44" stroke-width="4"/><text x="380" y="75" text-anchor="middle" font-size="23">可燃物</text><text x="272" y="169" text-anchor="middle" font-size="23">氧气</text><text x="480" y="169" text-anchor="middle" font-size="23">达到着火点</text><text x="380" y="214" text-anchor="middle" font-size="18" fill="#15364e">破坏一个条件即可灭火</text></svg>`;
 return flow(id);
 }
-export function diagramFor(id){return `<figure class="diagram-card">${special(id)}<figcaption>知识示意图 · 手机上可左右滑动查看；装置和微粒大小不按真实比例绘制</figcaption></figure>`;}
+export function diagramFor(id){return `<figure class="diagram-card">${special(id)}<figcaption>原创知识示意图 · 可点击放大；装置和微粒大小不按真实比例绘制</figcaption></figure>`;}
